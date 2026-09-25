@@ -47,7 +47,7 @@ The build creates a standalone `.tar.gz` in `dist-desktop/release/`.
 
 ## Automated release builds
 
-Pushing a version tag such as `v1.2.0` runs the repository release workflow on
+Pushing a version tag such as `v1.2.1` runs the repository release workflow on
 native macOS Apple Silicon, macOS Intel, Windows x64, and Linux x64 runners.
 After all builds and tests pass, the workflow publishes their artifacts on the
 matching GitHub release.

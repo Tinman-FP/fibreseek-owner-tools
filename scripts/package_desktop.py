@@ -47,7 +47,8 @@ def sha256(path: Path) -> str:
 def write_checksums(paths: list[Path], label: str) -> Path:
     checksum_path = RELEASE_ROOT / f"SHA256SUMS-{label}.txt"
     lines = [f"{sha256(path)}  {path.name}" for path in paths]
-    checksum_path.write_text("\n".join(lines) + "\n", encoding="ascii")
+    with checksum_path.open("w", encoding="ascii", newline="\n") as output:
+        output.write("\n".join(lines) + "\n")
     return checksum_path
 
 
