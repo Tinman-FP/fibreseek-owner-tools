@@ -47,6 +47,23 @@ The builder writes the package and its SHA-256 checksum to `dist/`.
 
 Continue with the complete [installation instructions](docs/INSTALL.md).
 
+## Troubleshooting tools
+
+The [FibreSeeker troubleshooting field guide](docs/TROUBLESHOOTING.md) records
+the neutral, repeatable lessons from commissioning and fault isolation. It
+focuses on identifying which software or hardware layer owns a symptom before
+changing settings.
+
+A read-only diagnostic collector can capture printer state and the most useful
+logs through Moonraker without requiring SSH:
+
+```sh
+python3 scripts/collect_diagnostics.py 192.168.50.113
+```
+
+It sends HTTP `GET` requests only, redacts common identifiers by default, and
+produces a checksummed ZIP suitable for inspection before sharing.
+
 ## Repository policy
 
 - Generated `.fibrepack` files are ignored because they authorize a specific
@@ -55,6 +72,8 @@ Continue with the complete [installation instructions](docs/INSTALL.md).
   printer.
 - This project is independent and is not affiliated with or endorsed by
   FibreSeek or Anisoprint.
+- Troubleshooting notes describe observed behavior and diagnostic methods, not
+  a claim that every FibreSeeker has the same symptoms.
 
 ## Tested reference
 

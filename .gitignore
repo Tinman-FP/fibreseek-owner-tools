@@ -6,3 +6,6 @@ __pycache__/
 .DS_Store
 *.key
 id_*
+fibreseek-diagnostics-*/
+fibreseek-diagnostics-*.zip
+fibreseek-diagnostics-*.zip.sha256
