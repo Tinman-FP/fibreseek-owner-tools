@@ -27,7 +27,10 @@ test "${first_digest}" = "${second_digest}"
 python3 -m py_compile \
   "${repo_root}/scripts/build_fibrepack.py" \
   "${repo_root}/scripts/collect_diagnostics.py" \
-  "${repo_root}/scripts/verify_fibrepack.py"
+  "${repo_root}/scripts/package_desktop.py" \
+  "${repo_root}/scripts/verify_fibrepack.py" \
+  "${repo_root}/fibreseek_access/core.py" \
+  "${repo_root}/fibreseek_access/app.py"
 
 python3 -m unittest discover -s "${repo_root}/tests" -p 'test_*.py'
 

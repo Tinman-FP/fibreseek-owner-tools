@@ -9,3 +9,6 @@ id_*
 fibreseek-diagnostics-*/
 fibreseek-diagnostics-*.zip
 fibreseek-diagnostics-*.zip.sha256
+.build-venv/
+build/
+dist-desktop/

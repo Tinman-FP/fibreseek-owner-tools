@@ -26,6 +26,18 @@ owner must build a package with their own public key.
 
 ## Quick start
 
+### Desktop wizard
+
+For the simplest setup, download **FibreSeek Owner Access** for macOS, Windows,
+or Linux from the latest release. The wizard creates the key, prepares the USB
+drive, displays the touchscreen procedure, and verifies access without Terminal
+commands.
+
+See the [desktop step-by-step guide](docs/DESKTOP_SETUP.md).
+Native build and release details are in [BUILD_DESKTOP.md](docs/BUILD_DESKTOP.md).
+
+### Command line
+
 Requirements: macOS or Linux, Python 3.9 or newer, OpenSSH, a FAT32/exFAT USB
 drive, and physical access to a FibreSeeker 3 you own or are authorized to
 administer.
