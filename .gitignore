@@ -1,0 +1,8 @@
+dist/
+*.fibrepack
+*.fibrepack.sha256
+__pycache__/
+*.pyc
+.DS_Store
+*.key
+id_*

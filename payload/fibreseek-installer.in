@@ -1,0 +1,34 @@
+#!/bin/bash
+set -euo pipefail
+
+# FibreSeeker 3 owner recovery helper.
+# Installs only the owner-supplied SSH public key for the stock "anisoprint"
+# account. It does not alter Klipper, Moonraker, firmware, networking,
+# passwords, or printer configuration.
+
+readonly ACCOUNT_HOME="/home/anisoprint"
+readonly SSH_DIR="${ACCOUNT_HOME}/.ssh"
+readonly AUTHORIZED_KEYS="${SSH_DIR}/authorized_keys"
+readonly STATUS_LOG="${ACCOUNT_HOME}/printer_data/logs/ssh_recovery.log"
+readonly PUBLIC_KEY=__PUBLIC_KEY_SHELL__
+readonly KEY_FINGERPRINT=__KEY_FINGERPRINT_SHELL__
+
+umask 077
+install -d -m 700 "${SSH_DIR}"
+touch "${AUTHORIZED_KEYS}"
+
+if ! grep -Fqx "${PUBLIC_KEY}" "${AUTHORIZED_KEYS}"; then
+  printf '%s\n' "${PUBLIC_KEY}" >> "${AUTHORIZED_KEYS}"
+fi
+
+chmod 700 "${SSH_DIR}"
+chmod 600 "${AUTHORIZED_KEYS}"
+chown -R anisoprint:anisoprint "${SSH_DIR}"
+
+{
+  printf '%s\n' "$(date -Is) FibreSeeker 3 SSH owner recovery completed"
+  printf '%s\n' "Account: anisoprint"
+  printf '%s\n' "Key fingerprint: ${KEY_FINGERPRINT}"
+} > "${STATUS_LOG}"
+
+exit 0
